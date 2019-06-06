@@ -1,5 +1,4 @@
-export default class Tile extends Phaser.GameObjects.Image{
-
+export default class Minion extends Phaser.GameObjects.Image{
     constructor(config){
         super(config.scene,config.x, config.y , config.key);
         this.scene = config.scene;
@@ -10,5 +9,6 @@ export default class Tile extends Phaser.GameObjects.Image{
     init(){
         
     };
-   
+    
+
 }

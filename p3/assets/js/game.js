@@ -5,4 +5,7 @@ var sample = "this is a sample"
 var game = new Phaser.Game(gameconfig);
 
 
+//console.log(Phaser)
+
+
 
