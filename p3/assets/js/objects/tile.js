@@ -5,6 +5,7 @@ export default class Tile extends Phaser.GameObjects.Image{
         this.scene = config.scene;
         this.scene.add.existing(this);
         this.init();
+        return this;
     };
 
     init(){

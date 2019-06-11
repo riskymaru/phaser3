@@ -22,21 +22,20 @@ export default class example1 extends Phaser.Scene{
 		var   target_move = null;
 
 			  //export platform
-			  platform.alpha = 0.25
 			  //console.log(platform);
 
 			  this.platform = platform
 
 			  //generate general
               general1.tint = 0xff6666;
-              general1.location_id = 20
+              general1.location_id = 19
               general1.x = platform.tiles[general1.location_id].x
               general1.y = platform.tiles[general1.location_id].y
               general1.setScale(1);
               this.general1 = general1
 
               general2.tint = 0x5555cc;
-              general2.location_id = 29
+              general2.location_id = 25
               general2.x = platform.tiles[general2.location_id].x
               general2.y = platform.tiles[general2.location_id].y
               general2.setScale(1);
@@ -47,45 +46,34 @@ export default class example1 extends Phaser.Scene{
 
               //add control
               this.addControl();
+
 	};
 
 	addControl(){
         const self = this;
         var i = 0;
+        var tile_total = self.platform.tile_total;
 
             Phaser.Tap(this.general1,
                 {"onTap":function(){
-                    //console.log("general1");
                     self.target_move = self.general1;
+                    self.platform.reset_tiles();
+                    self.platform._target = self.target_move;
+                    self.platform.checkArea(self.general1);
                 }},
             this);
 
             Phaser.Tap(this.general2,
                 {"onTap":function(){
-                    //console.log("general2");
                     self.target_move = self.general2;
+                    self.platform.reset_tiles();
+                    self.platform._target = self.target_move;
+                    self.platform.checkArea(self.general2);
                 }},
             this);
-
-            for(i=0;i<50;i++){
-                self.defaultTilesAction( self.platform.tiles[i] );
-            };
     };
 
-    defaultTilesAction(_obj){
-        const self = this;
-
-            Phaser.Tap(_obj,
-                {"onTap":function(){
-                	if(self.target_move != null){
-                    	TweenMax.to(self.target_move,0.25,{x:_obj.x,y:_obj.y});
-                    }
-                }},
-            self);
-    };
-
-    checkArea(area_id){
-    	var area = 90
-    }
+    
+    
 
 };
