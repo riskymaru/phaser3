@@ -11,7 +11,7 @@ export default class Assets extends Phaser.GameObjects.Image{
     init(){
         //init assets
 		this.tile = { scene:this.scene, x:0, y:0, key:"tile1" };
-		this.cup = { scene:this.scene, x:0, y:0, key:"cup" };
+		this.cup  = { scene:this.scene, x:0, y:0, key:"cup"   };
     }
 
 }
